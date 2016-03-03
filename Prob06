@@ -1,0 +1,26 @@
+import java.util.*;
+import java.io.*;
+
+public class Palin
+{
+	public static void main(String[] args) throws Exception
+	{
+		Scanner pal = new Scanner(new File("Input.txt"));
+		while(pal.hasNext())
+		{
+			String go = pal.nextLine();
+			go = go.replaceAll(" ", "");
+			go = go.toLowerCase();
+			char[] temp1 = go.toCharArray();
+			char[] temp2 = new char[temp1.length];
+			for(int i = 0; i < temp2.length; i++)
+			{
+				temp2[i] = temp1[temp1.length - i-1];
+			}
+			if(Arrays.equals(temp1, temp2))
+				System.out.println("yes");
+			else
+				System.out.println("no");
+		}
+	}
+}
